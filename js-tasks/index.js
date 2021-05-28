@@ -1,0 +1,94 @@
+// 1.
+const namesArray = ['Valentyna', 'Elena', 'Oleksandra', 'Kostyantyn']
+// function massivName(names) {
+//     names[0] = 'Valentyna'
+//     names[1] = 'Elena'
+//     names[2] = 'Oleksandra'
+//     names[3] = 'Kostyantyn'
+// }
+
+function printArray(names) {
+    for (let i = 0; i < names.length; i++) {
+        const name = names[i]
+        console.log(name)
+    }
+}
+
+// printArray(namesArray)
+// printArray(namesArray)
+
+// 2. a
+const numberArray = [2, 3, 5, 10, 15, 25, 17]
+function sumArray(numbers) {
+    //debugger
+    let result = 0
+    for (let i = 0; i < numbers.length; i++) {
+        const number = numbers[i]
+        //        let temp = result + number 
+        //        result = temp 
+        result = result + number
+    }
+    console.log(result)
+
+}
+sumArray(numberArray)
+
+// 2. b
+const numArray = [-1, 23, 754, 343, 45, 87, 745, 123, 94]
+
+function multiArray(multiplications) {
+    let result = 1
+    for (i = 0; i < multiplications.length; i++) {
+        const multiplication = multiplications[i]
+        result = result * multiplication
+    }
+    console.log(result)
+}
+
+multiArray(numArray)
+
+// Implement a function that accepts an array
+// and a number and returns true if a number exists in an array
+
+function isNumberExist(numbers, findThisNumber) {
+    for (let i = 0; i < numbers.length; i++) {
+        const currentNumber = numbers[i]
+        if (findThisNumber == currentNumber) {
+            console.log('true')
+        } else {
+            console.log('false')
+        }
+    }
+}
+
+isNumberExist(numArray, 6)
+
+function printNumbers(maxNumber) {
+    //console.log(maxNumber)
+    for (let i = 0; i < maxNumber; i++) {
+        console.log(i)
+    }
+}
+//printNumbers(10000)
+
+function colour(times) {
+    const words = 'Black'
+    // for (let i = 0; i < times; i++) {
+    //     console.log(words)
+    // }
+
+    let i = 0;
+    while (i < times) {
+        console.log(words)
+        i = i + 1
+    }
+}
+//colour(10000)
+
+function printSequence(maxNumber) {
+    for (let i = 1; i <= maxNumber; i++) {
+        console.log(i)
+    }
+}
+printSequence(10)
+
