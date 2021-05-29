@@ -1,4 +1,99 @@
-// 1.
+
+const newArray = [234, 48, 25, 93, 18, 64, 52]
+
+// 1. printarr
+
+function printArray(numbers) {
+    for (let i = 0; i <= numbers.length; i++) {
+        const number = numbers[i]
+        console.log(number)
+    }
+}
+//printArray(newArray)
+
+
+// 2. sum
+
+function newSumArray(numbers) {
+    let result = 0
+    //debugger
+    for (let i = 0; i < numbers.length; i++) {
+        const number = numbers[i]
+        result = number + result
+    }
+    console.log(result)
+    return result
+}
+newSumArray(newArray)
+
+
+// 3. diff
+
+function diffArray(numbers) {
+    let results = 0
+    for (let i = 0; i < numbers.length; i++) {
+        const number = numbers[i]
+        results = results - number
+    }
+    console.log(results)
+}
+
+//diffArray(newArray)
+
+function newDiffArray(numbers) {
+    let sum = newSumArray(numbers)
+    let result = sum * -1
+    console.log(result)
+}
+
+newDiffArray(newArray)
+
+
+
+// 4. multiarr
+
+
+
+// 5. max number
+const newArray1 = [48, 25, 93, 18, 65, 52, 64]
+
+function findMaxNumber(arrayNumbers) {
+    let max = 0
+    for (let i = 0; i < arrayNumbers.length; i++) {
+        const number = arrayNumbers[i]
+        if (number > max) {
+            max = number
+        }
+    }
+    return max
+}
+
+let maxNumber = findMaxNumber(newArray1)
+console.log(maxNumber)
+
+// 6. min number
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 const namesArray = ['Valentyna', 'Elena', 'Oleksandra', 'Kostyantyn']
 // function massivName(names) {
 //     names[0] = 'Valentyna'
@@ -31,7 +126,7 @@ function sumArray(numbers) {
     console.log(result)
 
 }
-sumArray(numberArray)
+//sumArray(numberArray)
 
 // 2. b
 const numArray = [-1, 23, 754, 343, 45, 87, 745, 123, 94]
@@ -45,7 +140,7 @@ function multiArray(multiplications) {
     console.log(result)
 }
 
-multiArray(numArray)
+//multiArray(numArray)
 
 // Implement a function that accepts an array
 // and a number and returns true if a number exists in an array
@@ -61,7 +156,7 @@ function isNumberExist(numbers, findThisNumber) {
     }
 }
 
-isNumberExist(numArray, 6)
+//isNumberExist(numArray, 6)
 
 function printNumbers(maxNumber) {
     //console.log(maxNumber)
@@ -90,5 +185,5 @@ function printSequence(maxNumber) {
         console.log(i)
     }
 }
-printSequence(10)
+//printSequence(10)
 
