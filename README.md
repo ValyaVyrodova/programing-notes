@@ -23,4 +23,53 @@ Push to remote repository: `git push`
 `var z = 3` - это устаревшее ключевое слово определяющее переменную, значение которой меняется.
 Не используется потому, что использует не обьявленную ранее переменную, что приводит к ошибкам.
 
+### codecademy
+#### introduction 
+Keywords are words that are built into the JavaScript language, so the computer will recognize them and treats them specially.
+An operator is a character that performs a task in our code.
+A variable is a container for a value, they contain values and represent them with a name.
+Var, short for variable, is a JavaScript keyword that creates, or declares, a new variable.
+The let keyword signals that the variable can be reassigned a different value.
 
+Another concept that we should be aware of when using let (and even var) is that we can declare a variable without assigning the variable a value. In such a case, the variable will be automatically initialized with a value of undefined
+
+Data Types:
+- Number: Any number, including numbers with decimals: 4, 8, 1516, 23.42.
+- String: Any grouping of characters on your keyboard (letters, numbers, spaces, symbols, etc.) surrounded by single quotes: ' ... ' or double quotes " ... ". Though we prefer single quotes. Some people like to think of string as a fancy word for text.
+- Boolean: This data type only has two possible values— either true or false (without quotes). It’s helpful to think of booleans as on and off switches or as the answers to a “yes” or “no” question.
+- Null: This data type represents the intentional absence of a value, and is represented by the keyword null (without quotes).
+- Undefined: This data type is denoted by the keyword undefined (without quotes). It also represents the absence of a value though it has a different use than null.
+- Symbol: A newer feature to the language, symbols are unique identifiers, useful in more complex coding. No need to worry about these for now.
+- Object: Collections of related data.
+
+Arithmetic Operators
+Add: +
+Subtract: -
+Multiply: *
+Divide: /
+Remainder: %
+The remainder operator, sometimes called modulo, returns the number that remains after the right-hand number divides into the left-hand number as many times as it evenly can: 11 % 3 equals 2 because 3 fits into 11 three times, leaving 2 as the remainder.
+
+Concatenation - the process of appending one string to another. 
+
+Methods are actions we can perform
+We call, or use, these methods by appending an instance with:
+- a period (the dot operator)
+- the name of the method
+- opening and closing parentheses
+E.g. 'example string'.methodName().
+console.log('Codecademy'.toUpperCase());
+console.log('    Remove whitespace   '.trim()); // Use a string method to log the following string without whitespace at the beginning and end of it.
+console.log('hello'.toUpperCase()); // Prints 'HELLO'
+console.log('Hey'.startsWith('H')); // Prints true
+
+There are a few general rules for naming variables:
+
+Variable names cannot start with numbers.
+Variable names are case sensitive, so myName and myname would be different variables. It is bad practice to create two variables that have the same name using different cases.
+Variable names cannot be the same as keywords. For a comprehensive list of keywords check out MDN’s keyword documentation.
+
+
+increment operator (++) and decrement operator (--)
+
+The typeof keyword returns the data type (as a string) of a value.
