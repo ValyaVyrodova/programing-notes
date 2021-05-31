@@ -73,3 +73,39 @@ Variable names cannot be the same as keywords. For a comprehensive list of keywo
 increment operator (++) and decrement operator (--)
 
 The typeof keyword returns the data type (as a string) of a value.
+
+#### Conditional Statements
+
+ A conditional statement checks a specific condition(s) and performs a task based on the condition(s).
+
+- if, else if, and else statements
+- comparison operators
+- logical operators
+- truthy vs falsy values
+- ternary operators
+- switch statement
+
+`if (true) {`
+`  console.log('This message will print!');` 
+`}`
+`// Prints: This message will print!`
+
+
+`if...else` statements allow us to automate solutions to yes-or-no questions, also known as binary decisions.
+
+When writing conditional statements, sometimes we need to use different types of operators to compare values. These operators are called comparison operators.
+
+Here is a list of some handy comparison operators and their syntax:
+
+Less than: <
+Greater than: >
+Less than or equal to: <=
+Greater than or equal to: >=
+Is equal to: ===
+Is not equal to: !==
+
+In JavaScript, there are operators that work with boolean values known as logical operators. 
+
+- the and operator (&&)
+- the or operator (||)
+- the not operator, otherwise known as the bang operator (!)
