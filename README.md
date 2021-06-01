@@ -85,11 +85,12 @@ The typeof keyword returns the data type (as a string) of a value.
 - ternary operators
 - switch statement
 
-`if (true) {`
-`  console.log('This message will print!');` 
-`}`
-`// Prints: This message will print!`
-
+```js
+if (true) {
+  console.log('This message will print!');
+}
+// Prints: This message will print!
+```
 
 `if...else` statements allow us to automate solutions to yes-or-no questions, also known as binary decisions.
 
@@ -109,3 +110,88 @@ In JavaScript, there are operators that work with boolean values known as logica
 - the and operator (&&)
 - the or operator (||)
 - the not operator, otherwise known as the bang operator (!)
+
+Truthy and Falsy
+
+Sometimes, you’ll want to check if a variable exists and you won’t necessarily want it to equal a specific value — you’ll only check to see if the variable has been assigned a value.
+
+```js
+let myVariable = 'I Exist!';
+ 
+if (myVariable) {
+   console.log(myVariable)
+} else {
+   console.log('The variable does not exist.')
+}
+```
+The list of falsy values includes:
+
+- 0
+- Empty strings like "" or ''
+- null which represent when there is no value at all
+- undefined which represent when a declared variable lacks a value
+- NaN, or Not a Number
+
+Truthy and Falsy Assignment
+
+```js
+let defaultName;
+if (username) {
+  defaultName = username;
+} else {
+  defaultName = 'Stranger';
+}
+
+// OR
+
+let defaultName = username || 'Stranger';
+
+```
+
+Ternary Operator
+
+```js 
+let isNightTime = true;
+ 
+if (isNightTime) {
+  console.log('Turn on the lights!');
+} else {
+  console.log('Turn off the lights!');
+}
+
+// OR
+
+isNightTime ? console.log('Turn on the lights!') : console.log('Turn off the lights!');
+
+```
+In the example above:
+
+The condition, isNightTime, is provided before the ?.
+Two expressions follow the ? and are separated by a colon :.
+If the condition evaluates to true, the first expression executes.
+If the condition evaluates to false, the second expression executes.
+Like if...else statements, ternary operators can be used for conditions which evaluate to true or false.
+
+
+A switch statement provides an alternative syntax that is easier to read and write.
+let groceryItem = 'papaya';
+ 
+```js
+switch (groceryItem) {
+  case 'tomato':
+    console.log('Tomatoes are $0.49');
+    break;
+  case 'lime':
+    console.log('Limes are $1.49');
+    break;
+  case 'papaya':
+    console.log('Papayas are $1.29');
+    break;
+  default:
+    console.log('Invalid item');
+    break;
+}
+ 
+// Prints 'Papayas are $1.29'
+```
+
