@@ -195,3 +195,40 @@ switch (groceryItem) {
 // Prints 'Papayas are $1.29'
 ```
 
+The break keyword tells the computer to exit the block and not execute any more code or check any other cases inside the code block. Note: Without break keywords, the first matching case will run, but so will every subsequent case regardless of whether or not it matches—including the default. This behavior is different from if/else conditional statements that execute only one block of code.
+
+An if statement checks a condition and will execute a task if that condition evaluates to true.
+if...else statements make binary decisions and execute different code blocks based on a provided condition.
+We can add more conditions using else if statements.
+Comparison operators, including <, >, <=, >=, ===, and !== can compare two values.
+The logical and operator, &&, or “and”, checks if both provided expressions are truthy.
+The logical operator ||, or “or”, checks if either provided expression is truthy.
+The bang operator, !, switches the truthiness and falsiness of a value.
+The ternary operator is shorthand to simplify concise if...else statements.
+A switch statement can be used to simplify the process of writing multiple else if statements. The break keyword stops the remaining cases from being checked and executed in a switch statement.
+
+
+#### FUNCTIONS
+
+A function is a reusable block of code that groups together a sequence of statements to perform a specific task.
+
+We should also be aware of the hoisting feature in JavaScript which allows access to function declarations before they’re defined.
+
+a function declaration binds a function to an identifier
+
+Default parameters allow parameters to have a predetermined value in case there is no argument passed into the function or if the argument is undefined when called.
+
+RETURN
+
+To return a value from a function, we use a return statement.
+
+When a function is called, the computer will run through the function’s code and evaluate the result of calling the function. By default that resulting value is undefined.
+
+The return keyword is powerful because it allows functions to produce an output. We can then save the output to a variable for later use.
+
+A function with no name is called an anonymous function. A function expression is often stored in a variable in order to refer to it.
+
+Arrow functions remove the need to type out the keyword function every time you need to create a function. Instead, you first include the parameters inside the ( ) and then add an arrow => that points to the function body surrounded in { }
+
+concise body
+
