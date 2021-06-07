@@ -3,7 +3,7 @@
 let sale = true;
 sale = false
 if (sale) {
-    console.log('Time to buy!')
+  console.log('Time to buy!')
 }
 
 // 2. 
@@ -12,9 +12,9 @@ let sale = true;
 sale = false;
 
 if (sale) {
-    console.log('Time to buy!');
+  console.log('Time to buy!');
 } else {
-    console.log('Time to wait for a sale.')
+  console.log('Time to wait for a sale.')
 }
 
 
@@ -22,18 +22,18 @@ if (sale) {
 
 let hungerLevel = 7
 if (hungerLevel < 7) {
-    console.log('Time to eat!')
+  console.log('Time to eat!')
 } else {
-    console.log('We can eat later!')
+  console.log('We can eat later!')
 }
 
 // 4.
 let mood = 'sleepy';
 let tirednessLevel = 6;
 if (mood === 'sleepy' && tirednessLevel > 8) {
-    console.log('time to sleep')
+  console.log('time to sleep')
 } else {
-    console.log('not bed time yet')
+  console.log('not bed time yet')
 }
 
 // 5.
@@ -73,7 +73,7 @@ let isCorrect = true;
 isCorrect ? console.log('Correct!') : console.log('Incorrect!');
 
 let favoritePhrase = 'Love That!';
-favoritePhrase === 'Love That!'? console.log('I love that!') : console.log("I don't love that!");
+favoritePhrase === 'Love That!' ? console.log('I love that!') : console.log("I don't love that!");
 
 // 8.
 
@@ -98,16 +98,32 @@ else {
 let athleteFinalPosition = 'first place';
 
 switch (athleteFinalPosition) {
-  case 'first place' :
-  console.log('You get the gold medal!')
-  break
-  case 'second place' :
-  console.log('You get the silver medal!')
-  break
-  case 'third place' :
-  console.log('You get the bronze medal!')
-  break
-  default :
-  console.log('No medal awarded.')
-  break
+  case 'first place':
+    console.log('You get the gold medal!')
+    break
+  case 'second place':
+    console.log('You get the silver medal!')
+    break
+  case 'third place':
+    console.log('You get the bronze medal!')
+    break
+  default:
+    console.log('No medal awarded.')
+    break
+}
+
+
+// Race day
+let raceNumber = Math.floor(Math.random() * 1000);
+const registeredEarly = true
+let runnerAge = 18
+if (registeredEarly && runnerAge > 18) {
+  raceNumber += 1000
+  console.log(`You will race at 9.30 and your race number is ${raceNumber}.`)
+} else if (!registeredEarly && runnerAge > 18) {
+  console.log(`You will race at 11.00 and your race number is ${raceNumber}.`)
+} else if (runnerAge < 18) {
+  console.log(`You will race at 12.30 and your race number is ${raceNumber}.`)
+} else {
+  console.log('See the registration desk')
 }

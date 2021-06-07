@@ -3,10 +3,10 @@
 const kelvin = 0 // forecast in Kelvin
 let celsius = kelvin - 273 // forecast in Celsius
 let fahrenheit = celsius * (9 / 5) + 32 // calculate the Fahrenheit
-Math.floor(fahrenheit) // korrect the result 
+fahrenheit = Math.floor(fahrenheit) // korrect the result 
 console.log(`The temperature is ${fahrenheit} degrees Fahrenheit.`)
 let newton = celsius * (33 / 100)
-Math.floor(newton)
+newton = Math.floor(newton)
 console.log(`The temperature is ${newton} degrees Newton.`)
 
 
