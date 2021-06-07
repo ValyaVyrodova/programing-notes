@@ -31,6 +31,8 @@ A variable is a container for a value, they contain values and represent them wi
 Var, short for variable, is a JavaScript keyword that creates, or declares, a new variable.
 The let keyword signals that the variable can be reassigned a different value.
 
+String interpolation is when we insert, or interpolate, variables into strings using template literals.
+
 Another concept that we should be aware of when using let (and even var) is that we can declare a variable without assigning the variable a value. In such a case, the variable will be automatically initialized with a value of undefined
 
 Data Types:
@@ -230,5 +232,22 @@ A function with no name is called an anonymous function. A function expression i
 
 Arrow functions remove the need to type out the keyword function every time you need to create a function. Instead, you first include the parameters inside the ( ) and then add an arrow => that points to the function body surrounded in { }
 
-concise body
+It’s good to be aware of the differences between function expressions, arrow functions, and function declarations.
 
+#### Blocks and Scope
+
+Scope is the idea in programming that some variables are accessible/inaccessible from other parts of the program.
+
+Blocks are statements that exist within curly braces {}.
+
+Global scope refers to the context within which variables are accessible to every part of the program.
+
+Global variables are variables that exist within global scope.
+
+Block scope refers to the context within which variables that are accessible only within the block they are defined.
+
+Local variables are variables that exist within block scope.
+
+Global namespace is the space in our code that contains globally scoped information.
+
+Scope pollution is when too many variables exist in a namespace or variable names are reused.
