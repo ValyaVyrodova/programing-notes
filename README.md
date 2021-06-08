@@ -45,11 +45,11 @@ Data Types:
 - Object: Collections of related data.
 
 Arithmetic Operators
-Add: +
-Subtract: -
-Multiply: *
-Divide: /
-Remainder: %
+Add: `+`
+Subtract: `-`
+Multiply: `*`
+Divide: `/`
+Remainder:`%`
 The remainder operator, sometimes called modulo, returns the number that remains after the right-hand number divides into the left-hand number as many times as it evenly can: 11 % 3 equals 2 because 3 fits into 11 three times, leaving 2 as the remainder.
 
 Concatenation - the process of appending one string to another. 
@@ -59,11 +59,15 @@ We call, or use, these methods by appending an instance with:
 - a period (the dot operator)
 - the name of the method
 - opening and closing parentheses
-E.g. 'example string'.methodName().
+E.g. 
+example 
+```js
+string.methodName().
 console.log('Codecademy'.toUpperCase());
 console.log('    Remove whitespace   '.trim()); // Use a string method to log the following string without whitespace at the beginning and end of it.
 console.log('hello'.toUpperCase()); // Prints 'HELLO'
 console.log('Hey'.startsWith('H')); // Prints true
+```
 
 There are a few general rules for naming variables:
 
@@ -100,18 +104,18 @@ When writing conditional statements, sometimes we need to use different types of
 
 Here is a list of some handy comparison operators and their syntax:
 
-Less than: <
-Greater than: >
-Less than or equal to: <=
-Greater than or equal to: >=
-Is equal to: ===
-Is not equal to: !==
+- Less than: `<`
+- Greater than: `>`
+- Less than or equal to: `<=`
+- Greater than or equal to: `>=`
+- Is equal to: `===`
+- Is not equal to: `!==`
 
 In JavaScript, there are operators that work with boolean values known as logical operators. 
 
-- the and operator (&&)
-- the or operator (||)
-- the not operator, otherwise known as the bang operator (!)
+- the and operator `(&&)`
+- the or operator `(||)`
+- the not operator, otherwise known as the bang operator `(!)`
 
 Truthy and Falsy
 
@@ -129,7 +133,7 @@ if (myVariable) {
 The list of falsy values includes:
 
 - 0
-- Empty strings like "" or ''
+- Empty strings like `""` or `''`
 - null which represent when there is no value at all
 - undefined which represent when a declared variable lacks a value
 - NaN, or Not a Number
@@ -168,11 +172,11 @@ isNightTime ? console.log('Turn on the lights!') : console.log('Turn off the lig
 ```
 In the example above:
 
-The condition, isNightTime, is provided before the ?.
-Two expressions follow the ? and are separated by a colon :.
-If the condition evaluates to true, the first expression executes.
-If the condition evaluates to false, the second expression executes.
-Like if...else statements, ternary operators can be used for conditions which evaluate to true or false.
+- The condition, isNightTime, is provided before the `?`.
+- Two expressions follow the `?` and are separated by a colon :.
+- If the condition evaluates to true, the first expression executes.
+- If the condition evaluates to false, the second expression executes.
+- Like if...else statements, ternary operators can be used for conditions which evaluate to true or false.
 
 
 A switch statement provides an alternative syntax that is easier to read and write.
@@ -197,16 +201,25 @@ switch (groceryItem) {
 // Prints 'Papayas are $1.29'
 ```
 
-The break keyword tells the computer to exit the block and not execute any more code or check any other cases inside the code block. Note: Without break keywords, the first matching case will run, but so will every subsequent case regardless of whether or not it matches—including the default. This behavior is different from if/else conditional statements that execute only one block of code.
+The break keyword tells the computer to exit the block and not execute any more code or check any other cases inside the code block. 
+
+Note: Without break keywords, the first matching case will run, but so will every subsequent case regardless of whether or not it matches—including the default. This behavior is different from if/else conditional statements that execute only one block of code.
 
 An if statement checks a condition and will execute a task if that condition evaluates to true.
-if...else statements make binary decisions and execute different code blocks based on a provided condition.
+
+`if...else` statements make binary decisions and execute different code blocks based on a provided condition.
+
 We can add more conditions using else if statements.
-Comparison operators, including <, >, <=, >=, ===, and !== can compare two values.
-The logical and operator, &&, or “and”, checks if both provided expressions are truthy.
-The logical operator ||, or “or”, checks if either provided expression is truthy.
-The bang operator, !, switches the truthiness and falsiness of a value.
-The ternary operator is shorthand to simplify concise if...else statements.
+- Comparison operators, including `<, >, <=, >=, ===,` and `!==` can compare two values.
+
+- The logical and operator, `&&`, or `“and”`, checks if both provided expressions are truthy.
+
+- The logical operator `||`, or `“or”`, checks if either provided expression is truthy.
+
+- The bang operator, `!`, switches the truthiness and falsiness of a value.
+
+- The ternary operator is shorthand to simplify concise `if...else` statements.
+
 A switch statement can be used to simplify the process of writing multiple else if statements. The break keyword stops the remaining cases from being checked and executed in a switch statement.
 
 
@@ -254,16 +267,28 @@ Scope pollution is when too many variables exist in a namespace or variable name
 
 #### Arrays
 
-Arrays are lists that store data in JavaScript.
-Arrays are created with brackets [].
-Each item inside of an array is at a numbered position, or index, starting at 0.
-We can access one item in an array using its index, with syntax like: myArray[0].
-We can also change an item in an array using its index, with syntax like myArray[0] = 'new string';
-Arrays have a length property, which allows you to see how many items are in an array.
-Arrays have their own methods, including .push() and .pop(), which add and remove items from an array, respectively.
-Arrays have many methods that perform different tasks, such as .slice() and .shift(), you can find documentation at the Mozilla Developer Network website.
-Some built-in methods are mutating, meaning the method will change the array, while others are not mutating. You can always check the documentation.
-Variables that contain arrays can be declared with let or const. Even when declared with const, arrays are still mutable. However, a variable declared with const cannot be reassigned.
-Arrays mutated inside of a function will keep that change even outside the function.
+- Arrays are lists that store data in JavaScript.
+
+- Arrays are created with brackets `[]`.
+
+- Each item inside of an array is at a numbered position, or index, starting at 0.
+
+- We can access one item in an array using its index, with syntax like: `myArray[0]`.
+
+- We can also change an item in an array using its index, with syntax like `myArray[0] = 'new string';`
+
+- Arrays have a length property, which allows you to see how many items are in an array.
+
+- Arrays have their own methods, including `.push()` and `.pop()`, which add and remove items from an array, respectively.
+
+- Arrays have many methods that perform different tasks, such as `.slice()` and `.shift()`, you can find documentation at the Mozilla Developer Network website.
+
+- Some built-in methods are mutating, meaning the method will change the array, while others are not mutating. You can always check the documentation.
+
+- Variables that contain arrays can be declared with let or const. Even when declared with const, arrays are still mutable. However, a variable declared with const cannot be reassigned.
+
+- Arrays mutated inside of a function will keep that change even outside the function.
 Arrays can be nested inside other arrays.
-To access elements in nested arrays chain indices using bracket notation.
+
+- To access elements in nested arrays chain indices using bracket notation.
+
