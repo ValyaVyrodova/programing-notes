@@ -227,6 +227,9 @@ A switch statement can be used to simplify the process of writing multiple else 
 
 A function is a reusable block of code that groups together a sequence of statements to perform a specific task.
 
+- Arguments are the values passed into a function. 
+- Parameters act as placeholders for argument values.
+
 We should also be aware of the hoisting feature in JavaScript which allows access to function declarations before they’re defined.
 
 a function declaration binds a function to an identifier
@@ -292,3 +295,53 @@ Arrays can be nested inside other arrays.
 
 - To access elements in nested arrays chain indices using bracket notation.
 
+#### Loops
+
+A loop is a programming tool that repeats a set of instructions until a specified condition, called a stopping condition is reached. 
+
+A for loop contains three expressions separated by `;` inside the parentheses:
+
+- an initialization starts the loop and can also be used to declare the iterator variable.
+- a stopping condition is the condition that the iterator variable is evaluated against — if the condition evaluates to true the code block will run, and if it evaluates to false the code will stop.
+- an iteration statement is used to update the iterator variable on each loop.
+
+Nested loop -  a loop running inside another loop.
+
+`do...while` loops run code at least once— only checking the stopping condition after the first execution
+
+The `break` keyword allows programs to leave a loop during the execution of its block
+
+#### Iterator methods
+
+- `.forEach()` is used to execute the same code on every element in an array but does not change the array and returns `undefined`.
+
+```js
+// 1
+groceries.forEach(groceryItem => console.log(groceryItem));
+
+// 2
+function printGrocery(element){
+  console.log(element);
+}
+ groceries.forEach(printGrocery);
+```
+
+- When `.map()` executes the same code on every element in an array and returns a new array with the updated elements.
+
+```js
+const numbers = [1, 2, 3, 4, 5]; 
+ 
+const bigNumbers = numbers.map(number => {
+  return number * 10;
+  console.log(numbers); // Output: [1, 2, 3, 4, 5]
+console.log(bigNumbers); // Output: [10, 20, 30, 40, 50]
+});
+```
+- `.filter()` checks every element in an array to see if it meets certain criteria and returns a new array with the elements that return truthy for the criteria.
+
+- `.findIndex()` returns the index of the first element of an array which satisfies a condition in the callback function. It returns -1 if none of the elements in the array satisfies the condition.
+
+- `.reduce()`  iterates through an array and takes the values of the elements and returns a single value.
+The `.reduce()` method can also take an optional second parameter to set an initial value for accumulator (remember, the first argument is the callback function!).
+
+ Mozilla Developer Network - others iterator methods
