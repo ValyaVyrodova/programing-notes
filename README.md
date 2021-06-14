@@ -1,5 +1,9 @@
 # programing-notes
 
+`ctrl + K + C ` закоментировать код
+`ctrl + K + U` раскоментировать код
+`alt + shift + F` отформатировать код
+
 ## Git commands
 
 Set user name: `git config user.name --global "<First_Name Last_Name>"`
@@ -345,3 +349,32 @@ console.log(bigNumbers); // Output: [10, 20, 30, 40, 50]
 The `.reduce()` method can also take an optional second parameter to set an initial value for accumulator (remember, the first argument is the callback function!).
 
  Mozilla Developer Network - others iterator methods
+
+
+
+
+### Object Literals
+
+Use curly braces `{}` to designate an object literal:
+
+`let spaceship = {}; // spaceship is an empty object`
+
+We fill an object with unordered data. This data is organized into key-value pairs.
+
+We make a key-value pair by writing the key’s name, or identifier, followed by a colon and then the value.
+
+```js
+// An object literal with two key-value pairs
+let spaceship = {           // OBJECT
+  'Fuel Type': 'diesel',   // 'key': *value
+  color: 'silver'         // key': *value
+};
+```
+
+```js
+let objectName = {
+  'Property Name': 'Property Value',
+  propName: 'Prop Value'
+}
+```
+
