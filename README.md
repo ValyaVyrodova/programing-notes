@@ -240,6 +240,41 @@ a function declaration binds a function to an identifier
 
 Default parameters allow parameters to have a predetermined value in case there is no argument passed into the function or if the argument is undefined when called.
 
+- Function Declaration: функция в основном потоке кода
+```js
+function sum(a, b) {
+  let result = a + b;
+
+  return result;
+}
+```
+- Function Expression: функция как часть выражения
+```js
+let sum = function(a, b) {
+  let result = a + b;
+
+  return result;
+};
+```
+- Стрелочные функции:
+```js
+// выражение в правой части
+let sum = (a, b) => a + b;
+
+// многострочный код в фигурных скобках { ... }, здесь нужен return:
+let sum = (a, b) => {
+  // ...
+  return a + b;
+}
+
+// без аргументов
+let sayHi = () => alert("Привет");
+
+// с одним аргументом
+let double = n => n * 2;
+```
+Функции всегда что-нибудь возвращают. Если нет оператора `return`, результатом будет `undefined`.
+
 RETURN
 
 To return a value from a function, we use a return statement.
@@ -355,6 +390,8 @@ The `.reduce()` method can also take an optional second parameter to set an init
 
 ### Object Literals
 
+Objects in JavaScript are containers that store data and functionality.
+
 Use curly braces `{}` to designate an object literal:
 
 `let spaceship = {}; // spaceship is an empty object`
@@ -362,6 +399,14 @@ Use curly braces `{}` to designate an object literal:
 We fill an object with unordered data. This data is organized into key-value pairs.
 
 We make a key-value pair by writing the key’s name, or identifier, followed by a colon and then the value.
+
+
+- Objects store collections of key-value pairs.
+
+- Each key-value pair is a property—when a property is a function it is known as a method.
+
+- An object literal is composed of comma-separated key-value pairs surrounded by curly braces.
+
 
 ```js
 // An object literal with two key-value pairs
@@ -377,4 +422,203 @@ let objectName = {
   propName: 'Prop Value'
 }
 ```
+- `let variableName = objectName['propertyName']`
 
+- `console.log(objectName[variableName])`
+
+Objects are mutable meaning we can update them after we create them!
+
+- We can use either dot notation, ., or bracket notation, [], and the assignment operator, = to add new key-value pairs to an object or change an existing property.
+
+Add 
+
+objectName['Property Name'] = 'New Property Value';
+objectName.propName = 'New Prop Value';
+
+```js
+const spaceship = {type: 'shuttle'};
+spaceship = {type: 'alien'}; // TypeError: Assignment to constant variable.
+spaceship.type = 'alien'; // Changes the value of the type property
+spaceship.speed = 'Mach 5'; // Creates a new key of 'speed' with a value of 'Mach 5'
+
+
+const spaceship = {
+  'Fuel Type': 'Turbo Fuel',
+  homePlanet: 'Earth',
+  mission: 'Explore the universe' 
+};
+ 
+delete spaceship.mission;  // Removes the mission property
+```
+
+
+```js
+let a = {};
+let b = a; // копирование по ссылке
+
+alert( a == b ); // true, т.к. обе переменные ссылаются на один и тот же объект
+alert( a === b ); // true
+
+
+let a = {};
+let b = {}; // два независимых объекта
+
+alert( a == b ); // -false
+```
+
+#### Methods
+
+When the data stored on an object is a function we call that a method.
+Функцию, которая является свойством объекта, называют методом этого объекта.
+
+A property is what an object has, while a method is what an object does.
+
+
+#### Looping Through Objects (for ... in)
+
+```js
+for (key in object) {
+  // тело цикла выполняется для каждого свойства объекта
+}
+```
+
+```js
+let spaceship = {
+  crew: {
+    captain: { 
+      name: 'Lily', 
+      degree: 'Computer Engineering', 
+      cheerTeam() { console.log('You got this!') } 
+    },
+    'chief officer': { 
+      name: 'Dan', 
+      degree: 'Aerospace Engineering', 
+      agree() { console.log('I agree, captain!') } 
+    },
+    medic: { 
+      name: 'Clementine', 
+      degree: 'Physics', 
+      announce() { console.log(`Jets on!`) } },
+    translator: {
+      name: 'Shauna', 
+      degree: 'Conservation Science', 
+      powerFuel() { console.log('The tank is full!') } 
+    }
+  }
+}; 
+ 
+// for...in
+for (let crewMember in spaceship.crew) {
+  console.log(`${crewMember}: ${spaceship.crew[crewMember].name}`);
+}
+```
+
+
+```js
+for (let variableName in outerObject.innerObject) {
+  console.log(`${variableName}: ${outerObject.innerObject[variableName].propertyName}`)
+};
+
+
+for (let variableName in outerObject.innerObject) {
+  console.log(`${variableName}: ${outerObject.innerObject[variableName].propertyName}`)
+};
+```
+#### Arrow Functions and this 
+
+Avoid using arrow functions when using this in a method!
+
+```js
+const goat = {
+  name: 'Billy',
+  color: 'biege',
+  giveDetails(){
+    console.log(`${this.name} is a ${this.color} goat.`)
+  }
+}
+
+// -OR
+
+const goat = {
+  name: 'Billy',
+  color: 'biege',
+  giveDetails: function() {
+    console.log(`${this.name} is a ${this.color} goat.`)
+  }
+}
+```
+
+#### Getters and Setters
+
+Свойства-аксессоры представлены методами: «геттер» – для чтения и «сеттер» – для записи. При литеральном объявлении объекта они обозначаются get и set
+
+Getters can return the value of internal properties and setters can safely reassign property values. 
+
+```js
+const person = {
+  _firstName: 'John',
+  _lastName: 'Doe',
+  get fullName() {
+    if (this._firstName && this._lastName){
+      return `${this._firstName} ${this._lastName}`;
+    } else {
+      return 'Missing a first name or a last name.';
+    }
+  }
+}
+ 
+// To call the getter method: 
+person.fullName; // 'John Doe'
+```
+#### Factory Functions
+
+```js
+const monsterFactory = (name, age, energySource, catchPhrase) => {
+  return { 
+    name: name,
+    age: age, 
+    energySource: energySource,
+    scare() {
+      console.log(catchPhrase);
+    } 
+  }
+};
+
+const ghost = monsterFactory('Ghouly', 251, 'ectoplasm', 'BOO!');
+ghost.scare(); // 'BOO!'
+
+```
+#### Property Value Shorthand
+
+```js
+const monsterFactory = (name, age) => {
+  return { 
+    name,
+    age 
+  }
+};
+```
+
+#### Destructured Assignment
+
+```js
+const vampire = {
+  name: 'Dracula',
+  residence: 'Transylvania',
+  preferences: {
+    day: 'stay inside',
+    night: 'satisfy appetite'
+  }
+};
+
+const residence = vampire.residence; 
+console.log(residence); // Prints 'Transylvania'
+
+const { residence } = vampire; 
+console.log(residence); // Prints 'Transylvania'
+
+const { day } = vampire.preferences; 
+console.log(day); // Prints 'stay inside'
+```
+
+The object that a method belongs to is called the calling object.
