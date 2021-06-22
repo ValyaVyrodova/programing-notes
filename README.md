@@ -622,3 +622,125 @@ console.log(day); // Prints 'stay inside'
 ```
 
 The object that a method belongs to is called the calling object.
+
+
+### CLASSES
+
+#### Constructor
+
+```js
+class Dog {
+  constructor(name) {
+    this.name = name;
+    this.behavior = 0;
+  }
+}
+```
+
+```js
+constructor(inputOne, inputTwo) {
+  this.inputOne = inputOne;
+  this.inputTwo = inputTwo;
+}
+```
+
+#### Instance /пример
+
+```js
+class Dog {
+  constructor(name) {
+    this.name = name;
+    this.behavior = 0;
+  } 
+}
+ 
+const halley = new Dog('Halley'); // Create new Dog instance
+console.log(halley.name); // Log the name value saved to halley
+// Output: 'Halley'
+```
+
+To create an instance of a class, you can use the syntax below:
+
+`const instance = ClassName('arg1', 'arg2');`
+
+
+#### Methods
+
+Class method and getter syntax is the same as it is for objects except you can not include commas between methods.
+
+Property names with underscores (`_name` and `_behavior`) indicate that these properties should not be accessed directly.
+
+```js
+class Dog {
+  constructor(name) {
+    this._name = name;
+    this._behavior = 0;
+  }
+ 
+  get name() {
+    return this._name;
+  }
+ 
+  get behavior() {
+    return this._behavior;
+  }
+ 
+  incrementBehavior() {
+    this._behavior++;
+  }
+}
+```
+
+```js
+get keyOne() {
+  return this._keyOne;
+}
+```
+
+```js
+methodOne(keyOne) {
+  // Do something here
+}
+```
+
+#### Inheritance
+
+With inheritance, you can create a parent class (also known as a superclass) with properties and methods that multiple child classes (also known as subclasses) share. The child classes inherit the properties and methods from their parent class.
+
+```js
+class Animal {
+  constructor(name) {
+    this._name = name;
+    this._behavior = 0;
+  }
+ 
+  get name() {
+    return this._name;
+  }
+ 
+  get behavior() {
+    return this._behavior;
+  }
+ 
+  incrementBehavior() {
+    this._behavior++;
+  }
+} 
+
+class Cat extends Animal {
+  constructor(name, usesLitter) {
+    super(name);
+    this._usesLitter = usesLitter;
+  }
+}
+```
+The extends keyword makes the methods of the animal class available inside the cat class.
+
+- The super keyword `calls` the constructor of the parent class. In this case, super(name) passes the name argument of the Cat class to the constructor of the Animal class. When the Animal constructor runs, it sets this._name = name; for new Cat instances.
+
+In a `constructor()`, you must always call the `super` method before you can use the `this` keyword — if you do not, JavaScript will throw a `reference error`. To avoid reference errors, it is best practice to call `super` on the first line of subclass constructors.
+
+```js
+bryceCat.incrementBehavior(); // Call .incrementBehavior() on Cat instance 
+console.log(bryceCat.behavior); // Log value saved to behavior
+```
