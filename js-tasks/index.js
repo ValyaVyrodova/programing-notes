@@ -187,3 +187,14 @@ function printSequence(maxNumber) {
 }
 //printSequence(10)
 
+
+let sum = [] + 1 + 2
+// console.log(sum) // answer 12
+
+
+
+let x = 5;
+// alert( x++ );
+
+
+

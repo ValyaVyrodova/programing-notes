@@ -208,3 +208,9 @@ console.log(nurseOlynyk.remainingVacationDays);
 nurseOlynyk.addCertification('Genetics')
 console.log(nurseOlynyk.certifications)
 
+
+// 8.
+
+static generatePassword() {
+    return Math.floor(Math.random() * 10000)
+}
