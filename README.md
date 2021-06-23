@@ -626,7 +626,22 @@ The object that a method belongs to is called the calling object.
 
 ### CLASSES
 
+Classes are templates for objects.
+
 #### Constructor
+
+Javascript calls a constructor method when we create a new instance of a class.
+
+```js
+class emptyClass {
+  constructor(propertyOne, propertyTwo, propertyThree) {
+    this._propertyOne = propertyOne;
+    this._propertyTwo = propertyTwo;
+    this._propertyThree = propertyThree;
+  } 
+}
+```
+
 
 ```js
 class Dog {
@@ -642,6 +657,7 @@ constructor(inputOne, inputTwo) {
   this.inputOne = inputOne;
   this.inputTwo = inputTwo;
 }
+
 ```
 
 #### Instance /пример
@@ -705,7 +721,14 @@ methodOne(keyOne) {
 
 #### Inheritance
 
-With inheritance, you can create a parent class (also known as a superclass) with properties and methods that multiple child classes (also known as subclasses) share. The child classes inherit the properties and methods from their parent class.
+Inheritance is when we create a parent class with properties and methods that we can extend to child classes.
+(Purpose is to share data and methods between objects)
+
+```js
+class ChildClass extends ParentClass {
+ 
+}
+```
 
 ```js
 class Animal {
@@ -743,4 +766,28 @@ In a `constructor()`, you must always call the `super` method before you can use
 ```js
 bryceCat.incrementBehavior(); // Call .incrementBehavior() on Cat instance 
 console.log(bryceCat.behavior); // Log value saved to behavior
+```
+In addition to the inherited features, child classes can contain their own properties, getters, setters, and methods.
+
+#### Static Methods
+
+The `.now()` method is static, so you can call it directly from the class, but not from an instance of the class.
+Static methods are called on the class, but not on instances of the class.
+
+```js
+static generatePassword() {
+    return Math.floor(Math.random() * 10000)
+}
+```
+
+
+
+####  ***
+
+If the value is true, then change it to false. If the value is false, then change it to true.
+
+```js
+methodName() {
+  this._booleanProperty = !this._booleanProperty;
+}
 ```
