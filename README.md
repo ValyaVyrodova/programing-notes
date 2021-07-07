@@ -791,3 +791,356 @@ methodName() {
   this._booleanProperty = !this._booleanProperty;
 }
 ```
+
+### BROWSER COMPATIBILITY AND TRANSPILATION
+
+caniuse.com — a website you can use to look up HTML, CSS, and JavaScript browser compatibility information.
+Babel — A JavaScript package that transpiles JavaScript ES6+ code to ES5.
+
+Транспиляция — преобразование программы, при котором используется исходный код программы, написанной на одном языке программирования в качестве исходных данных, и производится эквивалентный исходный код на другом языке программирования.
+
+Transpilation is the process of converting one programming language to another.
+
+
+Use Babel to transpile the new, easy-to-write version of JavaScript (ES6) to the old, browser-compatible version of JavaScript (ES5).
+
+
+- Wrote one command in your terminal to transpile ES6 code to ES5
+In the terminal window type:
+
+`npm install babel-cli` //в терминале!!! This installs one of the two required Babel packages.
+`npm install babel-preset-env` // This installs the second of two required Babel packages.
+`npm run build`
+
+
+- Setup a JavaScript project that transpiles code when you run `npm run build` from the root directory of a JavaScript project.
+
+Before we install Babel, we need to setup our project to use the node package manager (npm).
+
+`npm init`
+Before we can add Babel to our project directory, we need to run `npm init`. 
+
+- `npm init` — A terminal command that creates a package.json file.
+- package.json — A file that contains information about a JavaScript project.
+
+
+
+Run `ls` in the terminal to see the file structure of your current directory.\
+
+#### Install Node Packages
+
+- `npm install` — A command that installs Node packages.
+
+The install command creates a folder called node_modules and copies the package files to it. The install command also installs all of the dependencies for the given package.
+`npm install`
+
+- `babel-cli` — A Node package that contains command line tools for Babel.
+- `babel-preset-env` — A Node package that contains ES6+ to ES5 syntax mapping information.
+
+
+`$ npm install babel-cli -D`
+`$ npm install babel-preset-env -D`
+
+The -D flag instructs npm to add each package to a property called devDependencies in package.json.
+
+`touch .babelrc`
+
+The preset specifies the version of your initial JavaScript file.
+
+
+To specify that we are transpiling code from an ES6+ source, we have to add the following JavaScript object into .babelrc:
+```js
+{
+  "presets": ["env"]
+}
+```
+
+The property’s value, `"babel src -d lib"`, is a command line method that transpiles ES6+ code to ES5.
+
+```js
+...
+"scripts": {
+  "test": "echo \"Error: no test specified\" && exit 1",
+  "build": "babel src -d lib"
+}
+```
+
+#### Build
+
+
+Runs the build script in package.json.
+
+`"build": "babel src -d lib"`
+
+`npm run build`
+
+`.babelrc` — A file that specifies the version of the JavaScript source code.
+- `"build"` script — A package.json script that you use to tranpsile ES6+ code to ES5.
+- `npm run build` — A command that runs the build script and transpiles ES6+ code to ES5.
+
+
+#### The steps needed to set up a project for transpilation:
+
+1. Initialize your project using `npm init` and create a directory called `src`
+
+2. Install babel dependencies by running
+
+`npm install babel-cli -D`
+`npm install babel-preset-env -D`
+
+3. Create a `.babelrc` file inside your project and add the following code inside it:
+*Run `touch .babelrc` to add the .babelrc file to the root directory.
+
+```js
+{
+  "presets": ["env"]
+}
+```
+
+4. Add the following script to your scripts object in package.json:
+`"build": "babel src -d lib"`// under the "test'
+
+5. Run `npm run build` whenever you want to transpile your code from your src to lib directories.
+
+
+### Runtime Environment
+
+A runtime environment is where your program will be executed. 
+
+JavaScript code may be executed in one of two runtime environments:
+
+- a browser’s runtime environment
+- the Node runtime environment
+
+In each of these environments, different data values and functions are available, and these differences help distinguish front-end applications from back-end applications.
+
+Front-end JavaScript applications are executed in a browser’s runtime environment and have access to the window object.
+Back-end JavaScript applications are executed in the Node runtime environment and have access to the file system, databases, and networks attached to the server.
+
+#### Modules
+
+Modules are reusable pieces of code in a file that can be exported and then imported for use in another file. A modular program is one whose components can be separated, used individually, and recombined to create a complex system.
+
+Note: The words “module” and “file” are often used interchangably
+
+#### Implementations of Modules in JavaScript: Node.js vs ES6
+
+1. The Node runtime environment and the module.exports and require() syntax.
+2. The browser’s runtime environment and the ES6 import/export syntax.
+
+Executing this file using Node would look something like this:
+```js
+ $ node water-limits.js
+The freezing point of water in Fahrenheit is 32
+The boiling point of water in Fahrenheit is 212
+```
+
+To create a module, you simply have to create a new file where the functions can be declared. Then, to make these functions available to other files, add them as properties to the built-in module.exports object:
+```js
+/* converters.js */
+function celsiusToFahrenheit(celsius) {
+  return celsius * (9/5) + 32;
+}
+ 
+module.exports.celsiusToFahrenheit = celsiusToFahrenheit;
+ 
+module.exports.fahrenheitToCelsius = function(fahrenheit) {
+  return (fahrenheit - 32) * (5/9);
+};
+```
+`module.exports` is an object that is built-in to the Node.js runtime environment. Other files can now import this object, and make use of these two functions, with another feature that is built-in to the Node.js runtime environment: the `require()` function.
+
+The `require()` function accepts a string as an argument. That string provides the file path to the module you would like to import.
+
+```js
+/* water-limits.js */
+const converters = require('./converters.js');
+ 
+const freezingPointC = 0;
+const boilingPointC = 100;
+ 
+const freezingPointF = converters.celsiusToFahrenheit(freezingPointC);
+const boilingPointF = converters.celsiusToFahrenheit(boilingPointC);
+ 
+console.log(`The freezing point of water in Fahrenheit is ${freezingPointF}`);
+console.log(`The boiling point of water in Fahrenheit is ${boilingPointF}`);
+```
+
+In this case, `./` is a relative path indicating that converters.js is stored in the same folder as water-limits.js. When you use `require()`, the entire module.exports object is returned and stored in the variable converters. This means that both the .`celsiusToFahrenheit()` and `.fahrenheitToCelsius()` methods can be used in this program!
+
+#### Using Object Destructuring to be more Selective With require()
+
+With this approach, the remainder of the program works the same way but the program avoids importing a function it does not need.
+
+```js
+/* celsius-to-fahrenheit.js */
+const { celsiusToFahrenheit } = require('./converters.js');
+ 
+const celsiusInput = process.argv[2]; 
+const fahrenheitValue = celsiusToFahrenheit(input);
+ 
+console.log(`${celsiusInput} degrees Celsius = ${fahrenheitValue} degrees Fahrenheit`);
+```
+
+
+To export a value from a Node module, you can assign a value to the module.exports object like so:
+```js
+// Export a named function.
+module.exports.functionToExport = functionToExport;
+ 
+// or... export a function expression.
+module.exports.functionToExport = () => {};
+```
+
+Or you can assign module.exports to an object of the exported values:
+
+```js
+module.exports = {
+  functionToExportA,
+  functionToExportB
+};
+```
+
+Use the require() function to import a module. Your code should look something like this:
+
+`const myModule = require('path/to/myModule.js');`
+
+#### type="module"
+
+```js
+<!-- secret-messages.html --> 
+<html>
+  <head>
+    <title>Secret Messages</title>
+  </head>
+  <body>
+    <button id="secret-button"> Press me... if you dare </button>
+    <p id="secret-p" style="display: none"> Modules are fancy! </p>
+    <script type="module" src="./secret-messages.js"> </script>
+  </body>
+</html>
+```
+
+#### Renaming Imports to Avoid Naming Collisions
+
+ES6 includes syntax for renaming imported resources by adding in the keyword as. It looks like this:
+
+`import { exportedResource as newlyNamedResource } from '/path/to/module'`
+
+Let’s see how this could work within main.js
+
+```js
+/* main.js */
+import { greet as greetEspanol } from 'greeterEspanol.js';
+import { greet as greetFrancais } from 'greeterFrancais.js';
+ 
+greetEspanol(); // Prints: hola
+greetFrancais(); // Prints: bonjour
+```
+
+#### Default Exports and Imports
+
+The syntax for exporting a default object looks like this:
+
+```js
+const resources = { 
+  valueA, 
+  valueB 
+}
+export { resources as default };
+```
+
+The clause as default renames the exported object to default, a reserved identifier that can only be given to a single exported value.
+
+```js
+const resources = {
+  valueA,
+  valueB
+}
+export default resources;
+```
+
+#### Importing default values
+
+`import importedResources from 'module.js';`
+
+This syntax is actually shorthand for import `{ default as importedResources } from 'module.js` and the imported default value may be given any name the programmer chooses.
+
+It should be noted that if the default export is an object, the values inside cannot be extracted until after the object is imported, like so:
+
+```js
+// This will work...
+import resources from 'module.js'
+const { valueA, valueB } = resources;
+ 
+// This will not work...
+import { valueA, valueB } from 'module.js'
+```
+
+```js
+import domFunctions from '../modules/dom-functions.js';
+ 
+const { toggleHiddenElement, changeToFunkyColor } = domFunctions;
+ 
+const buttonElement = document.getElementById('secret-button');
+const pElement = document.getElementById('secret-p');
+ 
+buttonElement.addEventListener('click', () => {
+  toggleHiddenElement(pElement);
+  changeToFunkyColor(buttonElement);
+});
+```
+
+If you recall, the syntax used in the snippet above is shorthand for:
+
+`import { default as domFunctions } from '../modules/dom-functions.js';`
+
+
+
+ ### PROMISES
+
+ An asynchronous operation is one that allows the computer to “move on” to other tasks while waiting for the asynchronous operation to complete. 
+
+Promises are objects that represent the eventual outcome of an asynchronous operation. 
+
+A `Promise` object can be in one of three states:
+
+- Pending: The initial state— the operation has not completed yet.
+
+- Fulfilled: The operation has completed successfully and the promise now has a resolved value. For example, a request’s promise might resolve with a JSON object as its value.
+
+- Rejected: The operation has failed and the promise has a reason for the failure. This reason is usually an Error of some kind.
+
+#### Constructing a Promise Object
+
+A new Promise object
+
+```js
+const executorFunction = (resolve, reject) => { };
+const myFirstPromise = new Promise(executorFunction);
+```
+
+JavaScript will pass its own resolve() and reject() functions into the executor function.
+
+```js
+const executorFunction = (resolve, reject) => {
+  if (someCondition) {
+      resolve('I resolved!');
+  } else {
+      reject('I rejected!'); 
+  }
+}
+const myFirstPromise = new Promise(executorFunction);
+```
+
+```js
+const anExampleExecutor = (resolve, reject) => {
+    if (someCondition) {
+        resolve('I resolved!');
+    } else {
+        reject('I rejected!');
+    }
+}
+```
+
+
