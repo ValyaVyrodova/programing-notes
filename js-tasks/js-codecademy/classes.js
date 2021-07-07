@@ -81,7 +81,6 @@ class HospitalEmployee {
         this._name = name;
         this._insurance = insurance;
         this._remainingVacationDays = 20;
-        //this._certifications = certifications;
     }
 
     get name() {

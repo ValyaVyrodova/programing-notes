@@ -36,3 +36,9 @@ secretMessage.shift()
 secretMessage.unshift('Programming')
 secretMessage.splice(6, 5, 'know')
 console.log(secretMessage.join(' '))
+
+
+// ***
+addCertification(newCertification){
+    this._certifications.push(newCertification)
+  }
