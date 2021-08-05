@@ -1120,7 +1120,14 @@ const executorFunction = (resolve, reject) => { };
 const myFirstPromise = new Promise(executorFunction);
 ```
 
+The Promise constructor method takes a function parameter called the executor function which runs automatically when the constructor is called. 
+
 JavaScript will pass its own resolve() and reject() functions into the executor function.
+
+
+- resolve() will change the promise’s status from pending to fulfilled, and the promise’s resolved value will be set to the argument passed into resolve().
+
+- reject() will change the promise’s status from pending to rejected, and the promise’s rejection reason will be set to the argument passed into reject().
 
 ```js
 const executorFunction = (resolve, reject) => {
@@ -1142,5 +1149,238 @@ const anExampleExecutor = (resolve, reject) => {
     }
 }
 ```
+`setTimeout()` is a Node API (a comparable API is provided by web browsers) that uses callback functions to schedule tasks to be performed after a delay. 
+`setTimeout()` has two parameters: a callback function and a delay in milliseconds.
+
+```js
+const delayedHello = () => {
+  console.log('Hi! This is an asynchronous greeting!');
+};
+ 
+setTimeout(delayedHello, 2000);
+```
+
+Asynchronous JavaScript uses something called the event-loop. After two seconds, `delayedHello()` is added to a line of code waiting to be run. 
+Before it can run, any synchronous code from the program will run. 
+Next, any code in front of it in the line will run. This means it might be more than two seconds before `delayedHello()` is actually executed.
+
+```js
+const returnPromiseFunction = () => {
+  return new Promise((resolve, reject) => {
+    setTimeout(( ) => {resolve('I resolved!')}, 1000);
+  });
+};
+ 
+const prom = returnPromiseFunction();
+```
+
+#### Consuming Promises
+
+Promise objects come with an aptly named `.then()` method. 
+It allows us to say, “I have a promise, when it settles, `then` here’s what I want to happen…”
+
+`.then()` is a higher-order function— it takes two callback functions as arguments. We refer to these callbacks as handlers.
+
+- The first handler, sometimes called onFulfilled, is a success handler, and it should contain the logic for the promise resolving.
+
+- The second handler, sometimes called onRejected, is a failure handler, and it should contain the logic for the promise rejecting.
+
+`.then()` is that it always returns a promise.
+
+We can invoke `.then()` with one, both, or neither handler! This allows for flexibility, but it can also make for tricky debugging. 
+
+#### Success and Failure Callback Functions
+
+```js
+const prom = new Promise((resolve, reject) => {
+  resolve('Yay!');
+});
+ 
+const handleSuccess = (resolvedValue) => {
+  console.log(resolvedValue);
+};
+ 
+prom.then(handleSuccess); // Prints: 'Yay!'
+```
+
+With typical promise consumption, we won’t know whether a promise will resolve or reject, 
+so we’ll need to provide the logic for either case. 
+We can pass both a success callback and a failure callback to `.then()`.
+
+```js
+let prom = new Promise((resolve, reject) => {
+  let num = Math.random();
+  if (num < .5 ){
+    resolve('Yay!');
+  } else {
+    reject('Ohhh noooo!');
+  }
+});
+ 
+const handleSuccess = (resolvedValue) => {
+  console.log(resolvedValue);
+};
+ 
+const handleFailure = (rejectionReason) => {
+  console.log(rejectionReason);
+};
+ 
+prom.then(handleSuccess, handleFailure);
+```
+
+#### Using catch() with Promises
+
+`.then()` will return a promise with the same settled value as the promise it was called on if no appropriate handler was provided. 
+
+```js
+prom
+  .then((resolvedValue) => {
+    console.log(resolvedValue);
+  })
+  .then(null, (rejectionReason) => {
+    console.log(rejectionReason);
+  });
+
+  ```
+The `.catch()` function takes only one argument, `onRejected` 
+
+```js
+prom
+  .then((resolvedValue) => {
+    console.log(resolvedValue);
+  })
+  .catch((rejectionReason) => {
+    console.log(rejectionReason);
+  });
+  ```
+  We pass a success handler to `.then()` and a failure handler to `.catch()`.
+
+  If the promise rejects, `.then()` will return a promise with the same rejection reason as the original promise and `.catch()`‘s failure handler will be invoked with that rejection reason.
+
+  #### Chaining Multiple Promises
+
+  Process of chaining promises together is called composition. 
+  Promises are designed with composition in mind! Here’s a simple promise chain in code:
+
+  ```js
+  firstPromiseFunction()
+.then((firstResolveVal) => {
+  return secondPromiseFunction(firstResolveVal);
+})
+.then((secondResolveVal) => {
+  console.log(secondResolveVal);
+});
+```
+
+```js
+const myFirstSuccessHandler = (resolvedValueArray) => {
+  return processPayment(resolvedValueArray);
+};
+```
+
+#### Avoiding Common Mistakes
+
+- Mistake 1: Nesting promises instead of chaining them.
+
+```js
+returnsFirstPromise()
+.then((firstResolveVal) => {
+  return returnsSecondValue(firstResolveVal)
+    .then((secondResolveVal) => {
+      console.log(secondResolveVal);
+    })
+})
+```
+We invoke a second .then() to handle the logic for the second promise settling all inside the first then()!
+
+Instead of having a clean chain of promises, we’ve nested the logic for one inside the logic of the other. 
+Imagine if we were handling five or ten promises!
+
+- Mistake 2: Forgetting to return a promise.
+
+```js
+returnsFirstPromise()
+.then((firstResolveVal) => {
+  returnsSecondValue(firstResolveVal)
+})
+.then((someVal) => {
+  console.log(someVal);
+})
+```
+Inside the success handler, we create our second promise, but we forget to return it!
+
+Since forgetting to return our promise won’t throw an error, this can be a really tricky thing to debug!
 
 
+#### Using Promise.all()
+
+`Promise.all()` accepts an array of promises as its argument and returns a single promise. 
+That single promise will settle in one of two ways:
+
+- If every promise in the argument array resolves, the single promise returned from `Promise.all()` will resolve with an array containing the resolve value from each promise in the argument array.
+
+- If any promise from the argument array rejects, the single promise returned from `Promise.all()` will immediately reject with the reason that promise rejected. This behavior is sometimes referred to as failing fast.
+
+
+```js
+let myPromises = Promise.all([returnsPromOne(), returnsPromTwo(), returnsPromThree()]);
+ 
+myPromises
+  .then((arrayOfValues) => {
+    console.log(arrayOfValues);
+  })
+  .catch((rejectionReason) => {
+    console.log(rejectionReason);
+  });
+  ```
+
+  ```js
+  const firstPromise = returnsPromOne();
+const secondPromise =  returnsPromTwo();
+const thirdPromise =  returnsPromThree();
+ 
+const promiseArray = [firstPromise, secondPromise, thirdPromise];
+ 
+Promise.all(promiseArray);
+```
+
+#### Review
+
+- Promises are JavaScript objects that represent the eventual result of an asynchronous operation.
+
+- Promises can be in one of three states: pending, resolved, or rejected.
+
+- A promise is settled if it is either resolved or rejected.
+
+- We construct a promise by using the `new` keyword and passing an executor function to the `Promise` constructor method.
+
+- `setTimeout()` is a Node function which delays the execution of a callback function using the event-loop.
+
+- We use `.then()` with a success handler callback containing the logic for what should happen if a promise resolves.
+
+- We use `.catch()` with a failure handler callback containing the logic for what should happen if a promise rejects.
+
+- Promise composition enables us to write complex, asynchronous code that’s still readable. We do this by chaining multiple `.then()`‘s and `.catch()`‘s.
+
+- To use promise composition correctly, we have to remember to return promises constructed within a `.then()`.
+
+- We should chain multiple promises rather than nesting them.
+
+- To take advantage of concurrency, we can use `Promise.all()`.
+
+
+### bubble sort
+```js
+function getIndexToIns(arr, num) {
+    for (j = 0; j < arr.length; j++) {
+        for (i = 0; i < arr.length; i++) {
+            if (arr[i] > arr[i + 1]) {
+                let temp = arr[i + 1] // swap()
+                arr[i + 1] = arr[i]
+                arr[i] = temp
+            }
+        }
+    }
+    return arr
+}
+```
