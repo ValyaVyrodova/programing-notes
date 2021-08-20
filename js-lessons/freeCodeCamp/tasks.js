@@ -311,12 +311,66 @@ function getIndexToIns(arr, num) {
     }
     for (k = 0; k < arr.length; k++) {
         if (num < arr[k]) {
-            return k-1
-        
+            return k - 1
+
         }
     }
     return arr
 }
 
-console.log(getIndexToIns([5, 3, 50, 20, 2, 8, 15, 45], 21));
+// console.log(getIndexToIns([5, 3, 50, 20, 2, 8, 15, 45], 21));
 // 2, 3, 5, 8, 15, 20, 45, 50
+
+
+
+// 15. Mutations
+// Return true if the string in the first element of the array contains all of the letters 
+//of the string in the second element of the array.
+
+function mutation(arr) {
+    //debugger
+    let wordArr1 = arr[0].split('')
+    let wordArr2 = arr[1].split('')
+    for (let j = 0; j < wordArr2.length; j++) {
+        let charExist = false
+        for (let k = 0; k < wordArr1.length; k++) {
+            if (wordArr1[j] === wordArr2[k]) {
+                charExist = true
+                break
+            }
+        }
+        if (charExist === false) {
+            return false
+        }
+    }
+    return true;
+}
+
+// console.log(mutation(["hello", "hey"]))
+
+// 16. Chunky Monkey
+// Write a function that splits an array (first argument) into groups 
+// the length of size (second argument) and returns them as a two-dimensional array.
+
+function chunkArrayInGroups(arr, size) {
+    let res = []
+    let i = 0
+    while (i < arr.length) {
+        let array = []
+        for (j = 0; j < size; j++) {
+            if (i >= arr.length){
+                break
+            }
+            array.push(arr[i])
+            i++
+        }
+        res.push(array)
+    }
+    return res
+}
+
+console.log(chunkArrayInGroups(["a", "b", "c", "d","e"], 2))
+
+
+
+

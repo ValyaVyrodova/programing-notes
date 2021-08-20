@@ -1179,7 +1179,7 @@ const prom = returnPromiseFunction();
 Promise objects come with an aptly named `.then()` method. 
 It allows us to say, “I have a promise, when it settles, `then` here’s what I want to happen…”
 
-`.then()` is a higher-order function— it takes two callback functions as arguments. We refer to these callbacks as handlers.
+`.then()` is a higher-order function — it takes two callback functions as arguments. We refer to these callbacks as handlers.
 
 - The first handler, sometimes called onFulfilled, is a success handler, and it should contain the logic for the promise resolving.
 
@@ -1384,3 +1384,95 @@ function getIndexToIns(arr, num) {
     return arr
 }
 ```
+
+### HTML TABLES
+
+#### Table Rows
+
+- `<tr>.` The `<tr>` element adds rows to a table.
+- `<td>` To add data to a row, you can use the `<td>` element.
+- `<th>` To add titles to rows and columns, you can use the table heading element
+
+The use of the scope attribute, which can take one of two values:
+
+    - `row` - this value makes it clear that the heading is for a row.
+    - `col` - this value makes it clear that the heading is for a column.
+
+```html
+<table>
+  <tr>
+    <th></th>
+    <th scope="col">Saturday</th>
+    <th scope="col">Sunday</th>
+  </tr>
+  <tr>
+    <th scope="row">Temperature</th>
+    <td>73</td>
+    <td>81</td>
+  </tr>
+</table>
+```
+
+
+- Table Borders: We use CSS to add style to HTML documents
+
+```css
+table, td {
+  border: 1px solid black;
+}
+```
+
+- Data can span columns using the `colspan` attribute.
+```html
+<tr>
+    <td colspan="2">Out of Town</td>
+    <td>Back in Town</td>
+</tr>
+  ```
+
+- The `rowspan` attribute is used for data that spans multiple rows
+
+- Long tables can be sectioned off using the table body element: `<tbody>`.
+The `<tbody>` element should contain all of the table’s data, excluding the table headings 
+
+- only the column headings go under the `<thead>` element. We can use the scope attribute on `<th>` elements to indicate whether a `<th>` element is being used as a `"row"` heading or a `"col"` heading.
+```html
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th scope="col">Saturday</th>
+      <th scope="col">Sunday</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">Morning</th>
+      <td rowspan="2">Work</td>
+      <td rowspan="3">Relax</td>
+    </tr>
+    <tr>
+     <th scope="row">Afternoon</th>
+    </tr>
+    <tr>
+      <th scope="row">Evening</th>
+      <td>Dinner</td>
+    </tr>
+  </tbody>
+</table>
+```
+- Table Footer 
+The bottom part of a long table can also be sectioned off using the `<tfoot>` element.
+
+
+### HTML FORMS
+
+```html
+<form action="/example.html" method="POST">
+</form>
+```
+- The `action` attribute determines where the information is sent.
+- The `method` attribute is assigned a HTTP verb that is included in the HTTP request.
+
+
+- The `<input>` element has a type attribute which determines how it renders on the web page and what kind of data it can accept.
