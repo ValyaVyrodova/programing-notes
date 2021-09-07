@@ -15,7 +15,7 @@ const findMaxConsecutiveOnes = function (nums) {
     }
     return result
 };
-console.log(findMaxConsecutiveOnes([1, 1, 0, 1, 1, 1]))
+// console.log(findMaxConsecutiveOnes([1, 1, 0, 1, 1, 1]))
 
 
 const findMaxConsecutiveOnes1 = function (nums) {
@@ -36,7 +36,7 @@ const findMaxConsecutiveOnes1 = function (nums) {
     return maxSum
 };
 
-console.log(findMaxConsecutiveOnes1([1, 1, 0, 1, 1, 1]))
+// console.log(findMaxConsecutiveOnes1([1, 1, 0, 1, 1, 1]))
 
 
 // 2. Given an array nums of integers, return how many of them contain an even number of digits.
@@ -59,10 +59,7 @@ let findNumbers = function (nums) {
     return result
 };
 
-console.log(findNumbers([12, 345, 2, 6, 7896]))
-
-
-
+// console.log(findNumbers([12, 345, 2, 6, 7896]))
 
 
 // 3. Given an integer array nums sorted in non-decreasing order, 
@@ -86,4 +83,88 @@ let sortedSquares = function (nums) {
     return nums
 };
 
-console.log(sortedSquares([-7, -3, 2, 3, 11]))
+// console.log(sortedSquares([-7, -3, 2, 3, 11]))
+
+
+// 4. Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
+// You may assume that each input would have exactly one solution, and you may not use the same element twice.
+// You can return the answer in any order.
+
+let twoSum = function (nums, target) {
+    let result = []
+    for (let i = 0; i < nums.length; i++) {
+        for (let j = i + 1; j < nums.length; j++) {
+            let sum = nums[i] + nums[j]
+            if (sum === target) {
+                result.push(i, j)
+                return result
+            }
+        }
+    }
+    return result
+};
+
+console.log(twoSum([2, 7, 11, 15], 9))
+
+// 6.
+
+let arraySign = function (nums) {
+    let result = undefined
+    let product = 1
+
+    for (i = 0; i < nums.length; i++) {
+        const num = nums[i]
+        product = num * product
+
+    }
+    if (product > 0) {
+        result = 1
+    } else if (product === 0) {
+        result = 0
+    } else if (product < 0) {
+        result = -1
+    }
+
+    return result
+};
+
+
+
+let arraySign = function (nums) {
+    let result = undefined
+    let res = 0
+
+    for (i = 0; i < nums.length; i++) {
+        if (nums[i] === 0) {
+            return result = 0
+        } else if (nums[i] < 0) {
+            res = res + 1
+            if (res % 2 === 0) {
+                result = 1
+            } else if (res % 2 !== 0) {
+                result = -1
+            }
+        } else {
+            result = 1
+        }
+    }
+    return result
+};
+
+// 7.
+
+let fizzBuzz = function (n) {
+    let res = []
+    for (let i = 1; i <= n; i++) {
+        if (i % 3 === 0 && i % 5 === 0) {
+            res.push("FizzBuzz")
+        } else if (i % 3 === 0) {
+            res.push("Fizz")
+        } else if (i % 5 === 0) {
+            res.push("Buzz")
+        } else {
+            res.push(i.toString())
+        }
+    }
+    return res
+};
