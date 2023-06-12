@@ -1,9 +1,5 @@
 # programing-notes
 
-`ctrl + K + C ` закоментировать код
-`ctrl + K + U` раскоментировать код
-`alt + shift + F` отформатировать код
-
 ## Git commands
 
 Set user name: `git config user.name --global "<First_Name Last_Name>"`
@@ -18,14 +14,6 @@ Push to remote repository: `git push`
 
 ## JS
 
-### variables
-
-Переменная - проименнованная область памяти, которую можно использовать для доступа к данным
-
-`let x = 10` - это ключевое слово определяющее переменную значение которой может менятся
-`const y = 5` - это ключевое слово опредедляющее переменную значение которой не меняется 
-`var z = 3` - это устаревшее ключевое слово определяющее переменную, значение которой меняется.
-Не используется потому, что использует не обьявленную ранее переменную, что приводит к ошибкам.
 
 ### codecademy
 #### introduction 
@@ -273,7 +261,6 @@ let sayHi = () => alert("Привет");
 // с одним аргументом
 let double = n => n * 2;
 ```
-Функции всегда что-нибудь возвращают. Если нет оператора `return`, результатом будет `undefined`.
 
 RETURN
 
@@ -478,7 +465,7 @@ A property is what an object has, while a method is what an object does.
 
 ```js
 for (key in object) {
-  // тело цикла выполняется для каждого свойства объекта
+
 }
 ```
 
@@ -549,8 +536,6 @@ const goat = {
 ```
 
 #### Getters and Setters
-
-Свойства-аксессоры представлены методами: «геттер» – для чтения и «сеттер» – для записи. При литеральном объявлении объекта они обозначаются get и set
 
 Getters can return the value of internal properties and setters can safely reassign property values. 
 
@@ -796,8 +781,6 @@ methodName() {
 
 caniuse.com — a website you can use to look up HTML, CSS, and JavaScript browser compatibility information.
 Babel — A JavaScript package that transpiles JavaScript ES6+ code to ES5.
-
-Транспиляция — преобразование программы, при котором используется исходный код программы, написанной на одном языке программирования в качестве исходных данных, и производится эквивалентный исходный код на другом языке программирования.
 
 Transpilation is the process of converting one programming language to another.
 
