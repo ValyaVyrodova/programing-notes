@@ -228,7 +228,7 @@ a function declaration binds a function to an identifier
 
 Default parameters allow parameters to have a predetermined value in case there is no argument passed into the function or if the argument is undefined when called.
 
-- Function Declaration: функция в основном потоке кода
+- Function Declaration: 
 ```js
 function sum(a, b) {
   let result = a + b;
@@ -236,7 +236,7 @@ function sum(a, b) {
   return result;
 }
 ```
-- Function Expression: функция как часть выражения
+- Function Expression: 
 ```js
 let sum = function(a, b) {
   let result = a + b;
@@ -244,21 +244,21 @@ let sum = function(a, b) {
   return result;
 };
 ```
-- Стрелочные функции:
+- Arrow function:
 ```js
-// выражение в правой части
+
 let sum = (a, b) => a + b;
 
-// многострочный код в фигурных скобках { ... }, здесь нужен return:
+// if there are more code { ... }, we need return:
 let sum = (a, b) => {
   // ...
   return a + b;
 }
 
-// без аргументов
-let sayHi = () => alert("Привет");
+// without argument
+let sayHi = () => alert("Hi");
 
-// с одним аргументом
+// with 1 argument
 let double = n => n * 2;
 ```
 
@@ -266,7 +266,8 @@ RETURN
 
 To return a value from a function, we use a return statement.
 
-When a function is called, the computer will run through the function’s code and evaluate the result of calling the function. By default that resulting value is undefined.
+When a function is called, the computer will run through the function’s code and evaluate the result of calling the function. 
+By default that resulting value is undefined.
 
 The return keyword is powerful because it allows functions to produce an output. We can then save the output to a variable for later use.
 
@@ -441,23 +442,21 @@ delete spaceship.mission;  // Removes the mission property
 
 ```js
 let a = {};
-let b = a; // копирование по ссылке
+let b = a; // copy by link
 
-alert( a == b ); // true, т.к. обе переменные ссылаются на один и тот же объект
+alert( a == b ); // true, 
 alert( a === b ); // true
 
 
 let a = {};
-let b = {}; // два независимых объекта
+let b = {}; // 
 
-alert( a == b ); // -false
+alert( a == b ); // false
 ```
 
 #### Methods
 
 When the data stored on an object is a function we call that a method.
-Функцию, которая является свойством объекта, называют методом этого объекта.
-
 A property is what an object has, while a method is what an object does.
 
 
@@ -645,7 +644,7 @@ constructor(inputOne, inputTwo) {
 
 ```
 
-#### Instance /пример
+#### Instance 
 
 ```js
 class Dog {
@@ -791,7 +790,7 @@ Use Babel to transpile the new, easy-to-write version of JavaScript (ES6) to the
 - Wrote one command in your terminal to transpile ES6 code to ES5
 In the terminal window type:
 
-`npm install babel-cli` //в терминале!!! This installs one of the two required Babel packages.
+`npm install babel-cli` //!!! This installs one of the two required Babel packages.
 `npm install babel-preset-env` // This installs the second of two required Babel packages.
 `npm run build`
 
